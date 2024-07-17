@@ -11,6 +11,7 @@ import SortSelector from "./components/SortSelector";
 export interface GameQuery {
   genre: Genres | null;
   platform: Platforms | null;
+  sortOrder: string;
 }
 
 const App = () => {
@@ -44,7 +45,12 @@ const App = () => {
               }
             />
           </Box>
-          <SortSelector />
+          <SortSelector
+            selectedSort={gameQuery.sortOrder}
+            onselectedSort={(sortOrder) =>
+              setGameQuery({ ...gameQuery, sortOrder })
+            }
+          />
         </Flex>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
