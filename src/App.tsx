@@ -36,7 +36,7 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <Flex marginLeft={5}>
+        <Flex marginTop={3}>
           <Box paddingX={5}>
             <PlatformSelector
               selectedPlatform={gameQuery.platform}
