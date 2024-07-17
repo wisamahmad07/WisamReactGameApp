@@ -11,9 +11,10 @@ import CropImage from "../services/image-url";
 
 interface Props {
   onSelectGenre: (genre: Genres) => void;
+  selectedGenre: Genres | null;
 }
 
-const GenresList = ({ onSelectGenre }: Props) => {
+const GenresList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data, loading } = useGenres();
 
   return (
@@ -27,7 +28,11 @@ const GenresList = ({ onSelectGenre }: Props) => {
               boxSize="32px"
               borderRadius={8}
             />
-            <Button variant="link" onClick={() => onSelectGenre(genre)}>
+            <Button
+              variant="link"
+              onClick={() => onSelectGenre(genre)}
+              fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
+            >
               {genre.name}
             </Button>
           </HStack>
